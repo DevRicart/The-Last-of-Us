@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: black;
+}
+
+main:after {
+  content: '';
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.05926120448179273) 50%, rgba(0, 0, 0, 1) 90%);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  height: 100vh;
+}
+
+.informations .logo {
+  max-width: 350px;
+  filter: invert(1);
+  margin-bottom: 80px;
+}
+
+.informations .description {
+  width: 50%;
+  font-size: 24px;
+  color: white;
+  line-height: 30px;
+}
+
+.carousel-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.carousel-buttons .button {
+  background-color: white;
+  width: 15px;
+  height: 15px;
+
+  border-radius: 100%;
+  border: 2px solid transparent;
+  border-color: white;
+
+  cursor: pointer;
+}
+
+.carousel-buttons .button.selected {
+  background-color: #1d8346;
+}
+
+.lateral-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.lateral-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.lateral-menu .icon {
+  width: 30px;
+  filter: invert(1);
+  transition: 0.3s ease-in-out;
+}
+
+.lateral-menu .icon:hover {
+  transform: scale(1.2);
+}
+
+.carousel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.carousel .image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: none;
+  animation: imageChange 0.7s;
+}
+
+.carousel .image.active {
+  display: block;
+}
+
+@keyframes imageChange {
+  from {
+    opacity: 0.85;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1280px) {
+
+  body {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .informations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .informations .description {
+    width: 60%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .informations .logo {
+    max-width: 300px;
+  }
+
+  .informations .description {
+    width: 100%;
+  }
+
+  .lateral-menu {
+    position: static;
+    min-height: auto;
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .lateral-menu ul {
+    flex-direction: row;
+  }
+
+  .content {
+    min-height: 70vh;
+    gap: 50px;
+  }
+
+  body {
+    padding: 40px;
+  }
+}
